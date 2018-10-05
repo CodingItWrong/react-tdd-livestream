@@ -1,0 +1,9 @@
+{
+  "name": "react-tdd-livestream",
+  "version": "0.1.0",
+  "description": "TDDing a React app on live stream",
+  "main": "index.js",
+  "repository": "git@github.com:CodingItWrong/react-tdd-livestream.git",
+  "author": "Josh Justice <me@codingitwrong.com>",
+  "license": "Apache-2.0"
+}
