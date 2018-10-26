@@ -24,18 +24,14 @@ export default class NewRestaurantForm extends Component {
     return (
       <Row>
         <Input
-          s={12}
-          m={8}
-          l={10}
+          s={12} m={8} l={10}
           label="Restaurant Name"
           value={inputText}
           onChange={this.handleTextChange}
           data-test="newRestaurantName"
         />
         <Button
-          s={12}
-          m={4}
-          l={2}
+          s={12} m={4} l={2}
           data-test="saveNewRestaurantButton"
           onClick={this.handleSave}
         >

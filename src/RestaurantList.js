@@ -7,22 +7,28 @@ import {
 
 const RestaurantList = ({ restaurantNames }) => (
   <Collection header="Restaurants">
-    {
-      restaurantNames.length === 0
-        ? (
-          <CollectionItem style={{ color: 'gray' }}>
-            (none added yet)
-          </CollectionItem>
-        )
-        : (
-          restaurantNames.map(restaurantName => (
-            <CollectionItem key={restaurantName}>
-              {restaurantName}
-            </CollectionItem>
-          ))
-        )
-    }
+    <RestaurantItems restaurantNames={restaurantNames} />
   </Collection>
+);
+
+const RestaurantItems = ({ restaurantNames }) => (
+  restaurantNames.length === 0
+    ? <NoRestaurantItems />
+    : <SomeRestaurantItems restaurantNames={restaurantNames} />
+);
+
+const NoRestaurantItems = () => (
+  <CollectionItem style={{ color: 'gray' }}>
+    (none added yet)
+  </CollectionItem>
+);
+
+const SomeRestaurantItems = ({ restaurantNames }) => (
+  restaurantNames.map(restaurantName => (
+    <CollectionItem key={restaurantName}>
+      {restaurantName}
+    </CollectionItem>
+  ))
 );
 
 export default RestaurantList;
