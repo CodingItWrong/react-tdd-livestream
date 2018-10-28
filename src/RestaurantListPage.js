@@ -20,6 +20,9 @@ export default class RestaurantListPage extends Component {
         ...state.restaurantNames,
       ],
     }));
+    // see https://react-materialize.github.io/#/modals "No Trigger"
+    // see https://materializecss.com/modals.html "Methods"
+    $('#addRestaurantModal').modal('close');
   }
 
   render() {
@@ -27,6 +30,7 @@ export default class RestaurantListPage extends Component {
     return (
       <div>
         <Modal
+          id="addRestaurantModal"
           header="New Restaurant"
           trigger={
             <Button
