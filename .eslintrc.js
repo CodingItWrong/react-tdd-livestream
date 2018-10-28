@@ -11,5 +11,6 @@ module.exports = {
   env: {
     'browser': true,
     'jest/globals': true,
+    'jquery': true,
   },
 };
