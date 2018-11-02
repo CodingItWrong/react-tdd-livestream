@@ -24,3 +24,4 @@ jobs:
       - run: npm install -g wait-on
       - run: bin/cypress
       - run: yarn unit
+      - run: yarn lint
