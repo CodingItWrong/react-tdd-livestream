@@ -7,7 +7,7 @@ describe('NewRestaurantForm', () => {
     let saveHandler;
     let wrapper;
 
-    beforeEach(() => {
+    beforeEach((done) => {
       saveHandler = jest.fn();
 
       wrapper = mount(<NewRestaurantForm onSave={saveHandler} />);
@@ -24,6 +24,8 @@ describe('NewRestaurantForm', () => {
       const result = wrapper
         .find('form')
         .simulate('submit');
+
+      setTimeout(done, 0);
     });
 
     it('calls the onSave handler', () => {
