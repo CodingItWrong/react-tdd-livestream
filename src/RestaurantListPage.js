@@ -25,6 +25,10 @@ export default class RestaurantListPage extends Component {
     $('#addRestaurantModal').modal('close');
   }
 
+  handleCancelAddRestaurant = () => {
+    $('#addRestaurantModal').modal('close');
+  }
+
   render() {
     const { restaurantNames } = this.state;
     return (
@@ -43,6 +47,7 @@ export default class RestaurantListPage extends Component {
         >
           <NewRestaurantForm
             onSave={this.handleAddRestaurant}
+            onCancel={this.handleCancelAddRestaurant}
           />
         </Modal>
         <Row>
