@@ -33,6 +33,7 @@ describe('NewRestaurantForm', () => {
     });
 
     it('clears the text field', () => {
+      wrapper.update();
       expect(
         wrapper
           .find('input[data-test="newRestaurantName"]')
