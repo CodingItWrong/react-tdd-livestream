@@ -21,9 +21,9 @@ describe('NewRestaurantForm', () => {
           },
         });
 
-      wrapper
-        .find('button[data-test="saveNewRestaurantButton"]')
-        .simulate('click');
+      const result = wrapper
+        .find('form')
+        .simulate('submit');
     });
 
     it('calls the onSave handler', () => {
