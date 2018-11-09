@@ -28,14 +28,19 @@ export default class NewRestaurantForm extends Component {
     this.props.onCancel();
   }
 
-  renderForm = ({ values, errors, handleChange, handleSubmit, resetForm }) => (
+  renderForm = ({
+    values,
+    errors,
+    handleChange,
+    handleSubmit,
+    resetForm,
+  }) => (
     <form onSubmit={handleSubmit}>
       <Row>
         <Input
           s={12}
           label="Restaurant Name"
           id="restaurantName"
-          name="restaurantName"
           value={values.restaurantName}
           error={errors.restaurantName}
           onChange={handleChange}
