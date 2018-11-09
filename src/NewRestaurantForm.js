@@ -44,6 +44,7 @@ export default class NewRestaurantForm extends Component {
                 data-test="newRestaurantName"
               />
               <Button
+                type="submit"
                 s={12} m={4} l={2}
                 data-test="saveNewRestaurantButton"
               >
