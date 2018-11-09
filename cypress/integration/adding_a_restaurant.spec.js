@@ -14,9 +14,15 @@ describe("adding a restaurant", () => {
 
     cy.get('[data-test="newRestaurantName"]').should("not.be.visible");
 
-    // modal allows adding restaurant
+    // modal displays validation errors
     cy.get('[data-test="addRestaurantButton"]').click();
 
+    cy.get('[data-test="saveNewRestaurantButton"]').click();
+
+    cy.get('label[for="restaurantName"][data-error="Cannot be blank"]')
+      .should("be.visible");
+
+    // modal allows adding restaurant
     cy.get('[data-test="newRestaurantName"]').type(restaurantName);
 
     cy.get('[data-test="saveNewRestaurantButton"]').click();
