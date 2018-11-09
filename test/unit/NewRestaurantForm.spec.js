@@ -14,7 +14,12 @@ describe('NewRestaurantForm', () => {
 
       wrapper
         .find('input[data-test="newRestaurantName"]')
-        .simulate('change', { target: { value: 'Sushi Place' } });
+        .simulate('change', {
+          target: {
+            id: 'restaurantName',
+            value: 'Sushi Place',
+          },
+        });
 
       wrapper
         .find('button[data-test="saveNewRestaurantButton"]')
