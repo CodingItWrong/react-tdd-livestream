@@ -23,6 +23,28 @@ export default class NewRestaurantForm extends Component {
     resetForm();
   }
 
+  renderForm = ({ values, errors, handleChange, handleSubmit }) => (
+    <form onSubmit={handleSubmit}>
+      <Input
+        s={12} m={8} l={10}
+        label="Restaurant Name"
+        id="restaurantName"
+        name="restaurantName"
+        value={values.restaurantName}
+        error={errors.restaurantName}
+        onChange={handleChange}
+        data-test="newRestaurantName"
+      />
+      <Button
+        type="submit"
+        s={12} m={4} l={2}
+        data-test="saveNewRestaurantButton"
+      >
+        Save
+      </Button>
+    </form>
+  )
+
   render() {
     return (
       <Row>
@@ -31,27 +53,7 @@ export default class NewRestaurantForm extends Component {
           validate={this.validate}
           onSubmit={this.handleSave}
         >
-          {({ values, errors, handleChange, handleSubmit }) => (
-            <form onSubmit={handleSubmit}>
-              <Input
-                s={12} m={8} l={10}
-                label="Restaurant Name"
-                id="restaurantName"
-                name="restaurantName"
-                value={values.restaurantName}
-                error={errors.restaurantName}
-                onChange={handleChange}
-                data-test="newRestaurantName"
-              />
-              <Button
-                type="submit"
-                s={12} m={4} l={2}
-                data-test="saveNewRestaurantButton"
-              >
-                Save
-              </Button>
-            </form>
-          )}
+          {this.renderForm}
         </Formik>
       </Row>
     );
