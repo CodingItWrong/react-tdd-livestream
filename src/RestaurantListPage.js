@@ -37,6 +37,7 @@ export default class RestaurantListPage extends Component {
           id="addRestaurantModal"
           data-test="addRestaurantModal"
           header="New Restaurant"
+          actions={[]}
           trigger={
             <Button
               data-test="addRestaurantButton"
