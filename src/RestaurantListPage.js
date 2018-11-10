@@ -25,17 +25,21 @@ export default class RestaurantListPage extends Component {
     $('#addRestaurantModal').modal('close');
   }
 
+  handleCancelAddRestaurant = () => {
+    $('#addRestaurantModal').modal('close');
+  }
+
   render() {
     const { restaurantNames } = this.state;
     return (
       <div>
         <Modal
           id="addRestaurantModal"
-          data-test="addRestaurantModal"
           header="New Restaurant"
+          actions={[]}
           trigger={
             <Button
-              data-test="addRestaurantButton"
+              data-testid="addRestaurantButton"
             >
               Add Restaurant
             </Button>
@@ -43,6 +47,7 @@ export default class RestaurantListPage extends Component {
         >
           <NewRestaurantForm
             onSave={this.handleAddRestaurant}
+            onCancel={this.handleCancelAddRestaurant}
           />
         </Modal>
         <Row>

@@ -4,41 +4,76 @@ import {
   Input,
   Row,
 } from 'react-materialize';
+import { Formik } from 'formik';
 
 export default class NewRestaurantForm extends Component {
-  state = { inputText: '' };
-
-  handleTextChange = (event) => {
-    this.setState({ inputText: event.target.value });
+  validate = (values) => {
+    const errors = {};
+    if (values.restaurantName === '') {
+      errors.restaurantName = 'Cannot be blank';
+    }
+    return errors;
   }
 
-  handleSave = () => {
-    const { inputText } = this.state;
+  handleSave = (values, { resetForm }) => {
+    const { restaurantName } = values;
     const { onSave } = this.props;
 
-    onSave(inputText);
-    this.setState({ inputText: '' });
+    onSave(restaurantName);
+    resetForm();
   }
 
-  render() {
-    const { inputText } = this.state;
-    return (
+  handleCancel = ({ resetForm }) => () => {
+    resetForm();
+    this.props.onCancel();
+  }
+
+  renderForm = ({
+    values,
+    errors,
+    handleChange,
+    handleSubmit,
+    resetForm,
+  }) => (
+    <form onSubmit={handleSubmit}>
       <Row>
         <Input
-          s={12} m={8} l={10}
+          s={12}
           label="Restaurant Name"
-          value={inputText}
-          onChange={this.handleTextChange}
-          data-test="newRestaurantName"
+          id="restaurantName"
+          value={values.restaurantName}
+          error={errors.restaurantName}
+          onChange={handleChange}
+          data-testid="newRestaurantName"
         />
+      </Row>
+      <Row>
         <Button
-          s={12} m={4} l={2}
-          data-test="saveNewRestaurantButton"
-          onClick={this.handleSave}
+          type="button"
+          data-testid="cancelAddRestaurantButton"
+          onClick={this.handleCancel({ resetForm })}
+        >
+          Cancel
+        </Button>
+        <Button
+          type="submit"
+          data-testid="saveNewRestaurantButton"
         >
           Save
         </Button>
       </Row>
+    </form>
+  )
+
+  render() {
+    return (
+      <Formik
+        initialValues={{ restaurantName: '' }}
+        validate={this.validate}
+        onSubmit={this.handleSave}
+      >
+        {this.renderForm}
+      </Formik>
     );
   }
 }
