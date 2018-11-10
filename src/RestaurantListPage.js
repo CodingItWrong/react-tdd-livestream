@@ -35,12 +35,11 @@ export default class RestaurantListPage extends Component {
       <div>
         <Modal
           id="addRestaurantModal"
-          data-test="addRestaurantModal"
           header="New Restaurant"
           actions={[]}
           trigger={
             <Button
-              data-test="addRestaurantButton"
+              data-testid="addRestaurantButton"
             >
               Add Restaurant
             </Button>
