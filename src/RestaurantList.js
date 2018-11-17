@@ -4,6 +4,7 @@ import {
   Collection,
   CollectionItem,
 } from 'react-materialize';
+import { Link } from 'react-router-dom';
 
 const RestaurantList = ({ restaurantNames }) => (
   <Collection header="Restaurants">
@@ -26,7 +27,9 @@ const NoRestaurantItems = () => (
 const SomeRestaurantItems = ({ restaurantNames }) => (
   restaurantNames.map(restaurantName => (
     <CollectionItem key={restaurantName}>
-      {restaurantName}
+      <Link to={`/restaurants/${restaurantName}`}>
+        {restaurantName}
+      </Link>
     </CollectionItem>
   ))
 );
