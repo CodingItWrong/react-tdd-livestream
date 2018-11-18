@@ -8,9 +8,16 @@ import {
 } from 'react-materialize';
 import NewRestaurantForm from './NewRestaurantForm';
 import RestaurantList from './RestaurantList';
-import { addRestaurant } from './store/restaurants/actions';
+import {
+  loadRestaurants,
+  addRestaurant,
+} from './store/restaurants/actions';
 
 class RestaurantListPage extends Component {
+  componentDidMount() {
+    this.props.loadRestaurants();
+  }
+
   handleAddRestaurant = (newRestaurantName) => {
     this.props.addRestaurant(newRestaurantName);
     // see https://react-materialize.github.io/#/modals "No Trigger"
@@ -44,7 +51,7 @@ class RestaurantListPage extends Component {
           />
         </Modal>
         <Row>
-          <RestaurantList restaurantNames={restaurants} />
+          <RestaurantList restaurants={restaurants} />
         </Row>
       </div>
     );
@@ -58,6 +65,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
+  loadRestaurants,
   addRestaurant,
 };
 

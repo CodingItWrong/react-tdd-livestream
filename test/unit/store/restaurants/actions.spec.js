@@ -16,14 +16,14 @@ describe('restaurant actions', () => {
           type: 'restaurants',
           id: '1',
           attributes: {
-            title: 'Sushi Place',
+            name: 'Sushi Place',
           },
         },
         {
           type: 'restaurants',
           id: '2',
           attributes: {
-            title: 'Burger Place',
+            name: 'Burger Place',
           },
         },
       ];
@@ -49,11 +49,11 @@ describe('restaurant actions', () => {
   describe('addRestaurant', () => {
     let dispatch;
 
-    const title = 'Sushi Place';
+    const name = 'Sushi Place';
     const restaurant = {
       type: 'restaurants',
       id: '1',
-      attributes: { title },
+      attributes: { name },
     };
 
     beforeEach(() => {
@@ -64,7 +64,7 @@ describe('restaurant actions', () => {
         },
       });
 
-      return addRestaurant(title)(dispatch);
+      return addRestaurant(name)(dispatch);
     });
 
     it('saves the restaurant to the API', () => {
@@ -73,7 +73,7 @@ describe('restaurant actions', () => {
         {
           data: {
             type: 'restaurants',
-            attributes: { title },
+            attributes: { name },
           },
         },
       );

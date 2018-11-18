@@ -3,11 +3,11 @@ import api from '../../api';
 export const STORE_RESTAURANTS = 'STORE_RESTAURANTS';
 export const ADD_RESTAURANT = 'ADD_RESTAURANT';
 
-export const addRestaurant = (title) => (dispatch) => {
+export const addRestaurant = (name) => (dispatch) => {
   const restaurant = {
     type: 'restaurants',
     attributes: {
-      title,
+      name,
     },
   };
   return api.post('/restaurants', { data: restaurant })
