@@ -9,7 +9,7 @@
   "scripts": {
     "start": "parcel index.html",
     "lint": "eslint cypress/integration/**/*.js src/**/*.js test/**/*.js",
-    "unit": "jest test/**/*.spec.js",
+    "unit": "jest test",
     "e2e": "cypress open"
   },
   "devDependencies": {
