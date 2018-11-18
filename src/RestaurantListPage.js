@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import {
   Button,
@@ -8,7 +9,7 @@ import {
 import NewRestaurantForm from './NewRestaurantForm';
 import RestaurantList from './RestaurantList';
 
-export default class RestaurantListPage extends Component {
+class RestaurantListPage extends Component {
   state = {
     restaurantNames: [],
   }
@@ -30,7 +31,7 @@ export default class RestaurantListPage extends Component {
   }
 
   render() {
-    const { restaurantNames } = this.state;
+    const { restaurants } = this.props;
     return (
       <div>
         <Modal
@@ -51,9 +52,17 @@ export default class RestaurantListPage extends Component {
           />
         </Modal>
         <Row>
-          <RestaurantList restaurantNames={restaurantNames} />
+          <RestaurantList restaurantNames={restaurants} />
         </Row>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    restaurants: state.restaurants,
+  };
+}
+
+export default connect(mapStateToProps)(RestaurantListPage);
