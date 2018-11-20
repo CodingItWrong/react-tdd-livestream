@@ -15,7 +15,7 @@ export const loadRestaurants = () => (dispatch) => {
     });
 };
 
-export const addRestaurant = (name) => {
+export const addRestaurant = (name) => (dispatch) => {
   const restaurant = {
     type: 'restaurants',
     attributes: {
@@ -23,8 +23,10 @@ export const addRestaurant = (name) => {
     },
   };
 
-  return {
+  dispatch({
     type: ADD_RESTAURANT,
     restaurant,
-  };
+  });
+
+  return Promise.resolve();
 };

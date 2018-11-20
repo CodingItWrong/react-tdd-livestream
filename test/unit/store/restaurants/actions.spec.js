@@ -1,5 +1,7 @@
 import {
+  ADD_RESTAURANT,
   STORE_RESTAURANTS,
+  addRestaurant,
   loadRestaurants,
 } from '../../../../src/store/restaurants/actions';
 import api from '../../../../src/store/api';
@@ -38,6 +40,28 @@ describe('restaurant actions', () => {
           expect(dispatch).toHaveBeenCalledWith({
             type: STORE_RESTAURANTS,
             restaurants,
+          });
+        });
+    });
+  });
+
+  describe('addRestaurant', () => {
+    it('stores the new restaurant in the state', () => {
+      const name = 'Sushi Place';
+      const restaurant = {
+        type: 'restaurants',
+        attributes: {
+          name,
+        },
+      };
+
+      const dispatch = jest.fn();
+
+      return addRestaurant(name)(dispatch)
+        .then(() => {
+          expect(dispatch).toHaveBeenCalledWith({
+            type: ADD_RESTAURANT,
+            restaurant,
           });
         });
     });
