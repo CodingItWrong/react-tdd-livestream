@@ -47,16 +47,27 @@ describe('restaurant actions', () => {
 
   describe('addRestaurant', () => {
     const name = 'Sushi Place';
-    const restaurant = {
+    const partialRestaurant = {
       type: 'restaurants',
       attributes: {
         name,
       },
     };
 
+    const restaurant = {
+      ...partialRestaurant,
+      id: '42',
+    };
+
     let dispatch;
 
     beforeEach(() => {
+      api.post.mockResolvedValue({
+        data: {
+          data: restaurant,
+        },
+      });
+
       dispatch = jest.fn();
       return addRestaurant(name)(dispatch);
     });
@@ -64,7 +75,7 @@ describe('restaurant actions', () => {
     it('sends the new restaurant to the server', () => {
       expect(api.post).toHaveBeenCalledWith(
         '/restaurants',
-        { data: restaurant },
+        { data: partialRestaurant },
       );
     });
 
