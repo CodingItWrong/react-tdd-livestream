@@ -11,13 +11,20 @@ import DishList from './DishList';
 import { addDish } from './store/dishes/actions';
 
 class RestaurantDetailPage extends Component {
-  handleAddDish = (newDishName) => {
-    this.props.addDish(newDishName);
+  handleAddDish = (dishName) => {
+    const restaurantName = this.props.match.params.name;
+    this.props.addDish({
+      restaurantName,
+      dishName,
+    });
     $('#addDishModal').modal('close');
   }
 
   render() {
     const { dishes } = this.props;
+    const restaurantName = this.props.match.params.name;
+    const restaurantDishes = dishes[restaurantName] || [];
+
     return (
       <div>
         <Link
@@ -43,7 +50,10 @@ class RestaurantDetailPage extends Component {
           />
         </Modal>
         <Row>
-          <DishList dishNames={dishes} />
+          <DishList
+            restaurantName={restaurantName}
+            dishNames={restaurantDishes}
+          />
         </Row>
       </div>
     );
