@@ -6,6 +6,7 @@ const token =
 const api = axios.create({
   baseURL: 'https://sandboxapi.reststate.org/',
   headers: {
+    'Content-Type': 'application/vnd.api+json',
     Authorization: `Bearer ${token}`,
   },
 });
