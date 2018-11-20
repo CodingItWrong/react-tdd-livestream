@@ -28,5 +28,8 @@ export const addRestaurant = (name) => (dispatch) => {
     restaurant,
   });
 
-  return Promise.resolve();
+  return api.post(
+    '/restaurants',
+    restaurant,
+  );
 };
