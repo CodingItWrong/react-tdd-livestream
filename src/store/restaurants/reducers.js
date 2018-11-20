@@ -8,7 +8,7 @@ export default function restaurants(state = [], action) {
   case STORE_RESTAURANTS:
     return action.restaurants;
   case ADD_RESTAURANT:
-    return [action.name, ...state];
+    return [action.restaurant, ...state];
   default:
     return state;
   }
