@@ -30,6 +30,6 @@ export const addRestaurant = (name) => (dispatch) => {
 
   return api.post(
     '/restaurants',
-    restaurant,
+    { data: restaurant },
   );
 };
