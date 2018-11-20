@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Modal,
@@ -19,6 +20,12 @@ class RestaurantDetailPage extends Component {
     const { dishes } = this.props;
     return (
       <div>
+        <Link
+          to="/"
+          data-testid="backButton"
+        >
+          Back
+        </Link>
         <Modal
           id="addDishModal"
           header="New Dish"
