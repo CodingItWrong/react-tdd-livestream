@@ -6,7 +6,7 @@ describe('adding a dish', () => {
     const restaurantName2 = 'Burger Place';
     const dishName2 = 'Mega Burger';
 
-    cy.visit("http://localhost:1234");
+    cy.visit("/");
 
     addRestaurant(restaurantName);
     goToRestaurantPage(restaurantName);

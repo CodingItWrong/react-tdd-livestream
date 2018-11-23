@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, wait, fireEvent, cleanup } from 'react-testing-library';
-import NewRestaurantForm from '../../src/NewRestaurantForm';
+import NewRestaurantForm from 'components/RestaurantListPage/NewRestaurantForm';
 
 describe('NewRestaurantForm', () => {
   describe('clicking the save button', () => {

@@ -14,4 +14,7 @@ module.exports = {
     'jest/globals': true,
     'jquery': true,
   },
+  rules: {
+    'no-redeclare': 'error',
+  },
 };

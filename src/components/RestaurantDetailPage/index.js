@@ -8,7 +8,7 @@ import {
 } from 'react-materialize';
 import NewDishForm from './NewDishForm';
 import DishList from './DishList';
-import { addDish } from './store/dishes/actions';
+import { addDish } from 'src/store/dishes/actions';
 
 class RestaurantDetailPage extends Component {
   handleAddDish = (dishName) => {
