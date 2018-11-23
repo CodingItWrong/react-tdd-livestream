@@ -45,5 +45,8 @@
   },
   "jest": {
     "moduleDirectories": ["node_modules", "src"]
+  },
+  "alias": {
+    "src": "./src"
   }
 }

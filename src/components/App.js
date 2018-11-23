@@ -8,7 +8,7 @@ import {
   Col,
   Row,
 } from 'react-materialize';
-import store from '../store';
+import store from 'src/store';
 import RestaurantListPage from './RestaurantListPage/index';
 import RestaurantDetailPage from './RestaurantDetailPage/index';
 
