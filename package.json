@@ -46,6 +46,7 @@
     "redux-thunk": "^2.3.0"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>test/setup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>test/setup.js",
+    "moduleDirectories": ["node_modules", "src"]
   }
 }
