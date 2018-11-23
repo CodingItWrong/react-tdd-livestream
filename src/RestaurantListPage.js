@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import {
   Button,
@@ -7,19 +8,18 @@ import {
 } from 'react-materialize';
 import NewRestaurantForm from './NewRestaurantForm';
 import RestaurantList from './RestaurantList';
+import {
+  loadRestaurants,
+  addRestaurant,
+} from './store/restaurants/actions';
 
-export default class RestaurantListPage extends Component {
-  state = {
-    restaurantNames: [],
+class RestaurantListPage extends Component {
+  componentDidMount() {
+    this.props.loadRestaurants();
   }
 
   handleAddRestaurant = (newRestaurantName) => {
-    this.setState(state => ({
-      restaurantNames: [
-        newRestaurantName,
-        ...state.restaurantNames,
-      ],
-    }));
+    this.props.addRestaurant(newRestaurantName);
     // see https://react-materialize.github.io/#/modals "No Trigger"
     // see https://materializecss.com/modals.html "Methods"
     $('#addRestaurantModal').modal('close');
@@ -30,7 +30,7 @@ export default class RestaurantListPage extends Component {
   }
 
   render() {
-    const { restaurantNames } = this.state;
+    const { restaurants } = this.props;
     return (
       <div>
         <Modal
@@ -51,9 +51,22 @@ export default class RestaurantListPage extends Component {
           />
         </Modal>
         <Row>
-          <RestaurantList restaurantNames={restaurantNames} />
+          <RestaurantList restaurants={restaurants} />
         </Row>
       </div>
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    restaurants: state.restaurants,
+  };
+}
+
+const mapDispatchToProps = {
+  loadRestaurants,
+  addRestaurant,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantListPage);
