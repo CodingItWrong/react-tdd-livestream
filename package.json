@@ -8,8 +8,8 @@
   "license": "Apache-2.0",
   "scripts": {
     "start": "parcel index.html",
-    "lint": "eslint cypress/integration/**/*.js src/**/*.js test/**/*.js",
-    "unit": "jest test",
+    "lint": "eslint src/**/*.js test/**/*.js",
+    "unit": "jest test/unit",
     "e2e": "cypress open"
   },
   "devDependencies": {
