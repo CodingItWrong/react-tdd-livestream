@@ -11,7 +11,7 @@ import RestaurantList from './RestaurantList';
 import {
   loadRestaurants,
   addRestaurant,
-} from './store/restaurants/actions';
+} from '../../store/restaurants/actions';
 
 class RestaurantListPage extends Component {
   componentDidMount() {

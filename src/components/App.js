@@ -8,9 +8,9 @@ import {
   Col,
   Row,
 } from 'react-materialize';
-import store from './store';
-import RestaurantListPage from './RestaurantListPage';
-import RestaurantDetailPage from './RestaurantDetailPage';
+import store from '../store';
+import RestaurantListPage from './RestaurantListPage/index';
+import RestaurantDetailPage from './RestaurantDetailPage/index';
 
 export default class App extends React.Component {
   render() {
