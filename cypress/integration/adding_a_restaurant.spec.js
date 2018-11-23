@@ -5,7 +5,7 @@ describe("adding a restaurant", () => {
 
     setUpInitialRestaurant(initialRestaurantName, restaurantName);
 
-    cy.visit("http://localhost:1234");
+    cy.visit("/");
 
     restaurantsFromServerDisplayedAtStart(initialRestaurantName);
     modalNotShownAtTheStart();
